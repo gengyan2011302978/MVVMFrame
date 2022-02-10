@@ -1,0 +1,61 @@
+plugins {
+    id 'com.android.library'
+}
+
+android {
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+    testImplementation rootProject.ext.dependencies['junit:junit']
+    androidTestImplementation rootProject.ext.dependencies['test.ext:junit']
+    androidTestImplementation rootProject.ext.dependencies['espresso-core']
+
+    api rootProject.ext.dependencies['appcompat']
+
+    api rootProject.ext.dependencies['lifecycle-runtime']
+    api rootProject.ext.dependencies['lifecycle-common']
+    api rootProject.ext.dependencies['lifecycle-viewmodel']
+    api rootProject.ext.dependencies['lifecycle-livedata']
+    api rootProject.ext.dependencies['unpeek-livedata']
+    api rootProject.ext.dependencies['lifecycle-viewmodel-ktx']
+
+    api rootProject.ext.dependencies['okhttp3']
+    api rootProject.ext.dependencies['okhttp3-interceptor']
+    api rootProject.ext.dependencies['retrofit']
+    api rootProject.ext.dependencies['retrofit-converter-gson']
+
+    api rootProject.ext.dependencies['coroutines-core']
+    api rootProject.ext.dependencies['coroutines-android']
+
+    api rootProject.ext.dependencies['gson']
+    api rootProject.ext.dependencies['glide']
+    api rootProject.ext.dependencies['timber']
+}

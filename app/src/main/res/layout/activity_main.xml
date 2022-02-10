@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.phjt.mvvmframe.vm.state.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.MainActivity">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            initTabAndPage="@{true}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tabBackground="@color/white"
+            app:tabIndicatorColor="@color/gray"
+            app:tabIndicatorHeight="4dp"
+            app:tabSelectedTextColor="@color/gray"
+            app:tabTextColor="@color/light_gray">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tab1" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tab2" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tab_layout">
+
+            <TextView
+                android:id="@+id/tv_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="第一页"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+            <TextView
+                android:id="@+id/tv_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="第二页"
+                android:textColor="@color/black"
+                android:textSize="30dp" />
+
+        </androidx.viewpager.widget.ViewPager>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

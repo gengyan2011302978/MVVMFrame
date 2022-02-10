@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.phjt.mvvmframe.vm.state.LoginViewModel" />
+
+        <variable
+            name="click"
+            type="com.phjt.mvvmframe.ui.activity.LoginActivity.ClickProxy" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.LoginActivity">
+
+        <EditText
+            android:id="@+id/et_name"
+            drawable_radius="@{12}"
+            drawable_strokeColor="@{0xffeeeeee}"
+            drawable_strokeWidth="@{1}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginEnd="24dp"
+            android:hint="请输入用户名"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:singleLine="true"
+            android:text="@={vm.userName}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_pwd"
+            drawable_radius="@{12}"
+            drawable_strokeColor="@{0xffeeeeee}"
+            drawable_strokeWidth="@{1}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="24dp"
+            android:hint="请输入密码"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:singleLine="true"
+            android:text="@={vm.password}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_name" />
+
+        <TextView
+            android:id="@+id/tv_login"
+            drawable_radius="@{20}"
+            drawable_solidColor="@{0xFFFF7055}"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:onClick="@{()->click.clickLogin()}"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/et_pwd"
+            tools:background="@color/design_default_color_secondary" />
+
+        <ImageView
+            android:id="@+id/iv_test"
+            errorImage="@{vm.errorImg}"
+            imageUrl="@{@string/image_url}"
+            android:layout_width="200dp"
+            android:layout_height="260dp"
+            android:layout_marginTop="40dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_login"
+            tools:src="@mipmap/ic_launcher" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,3 @@
+rootProject.name = "MVVMFrame"
+include ':app'
+include ':module_base'
